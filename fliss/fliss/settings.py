@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
-    'grappelli',
+    # 'grappelli',
     'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'apps.notes',
     'apps.likes',
     'apps.agents',
+    'apps.groups',
 ]
 
 MIDDLEWARE = [
