@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.User'
+
 
 # Application definition
 
@@ -49,6 +51,8 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.profiles',
     'apps.companies',
+    'apps.agents',
+    'apps.services',
 
 ]
 
@@ -79,6 +83,11 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # default
+    'guardian.backends.ObjectPermissionBackend',
+)
 
 WSGI_APPLICATION = 'skycrm.wsgi.application'
 
@@ -138,7 +147,6 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 MEDIA_URL = '/images/'
-AUTH_USER_MODEL = 'users.User'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]

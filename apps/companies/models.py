@@ -41,3 +41,6 @@ class Department(models.Model):
         max_length=100, null=True, blank=True, verbose_name='Department')
     # alias = models.SlugField()
     parent_org = models.ForeignKey(Company, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.dep_name
