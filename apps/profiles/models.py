@@ -29,6 +29,10 @@ class Profile(models.Model):
     )
     date_join = models.DateField(auto_now_add=True)
 
+    def _get_full_name(self):
+        return '%s %s' % (self.first_name, self.last_name)
+    full_name = property(_get_full_name)
+
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:

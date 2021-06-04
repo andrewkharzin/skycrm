@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     'thumbnails',
     'taggit',
     'taggit_serializer',
+    'guardian',
+    'mptt',
     # apps
     'apps.users',
     'apps.profiles',
+    'apps.companies',
 
 ]
 

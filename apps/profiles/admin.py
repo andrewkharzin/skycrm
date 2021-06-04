@@ -8,14 +8,13 @@ from .models import Profile
 class ProfileAdmin(admin.ModelAdmin):
     list_display = [
         'user',
-        'first_name',
-        'last_name',
+        'full_name',
         'position',
         'email',
         'phone_number',
         'birth_date',
         'location',
+        'date_join',
         'avatar_tag',
-        'date_join'
     ]
     readonly_fields = ('avatar_tag',)
