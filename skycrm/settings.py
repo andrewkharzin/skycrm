@@ -37,8 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # custom utility
+    'phonenumber_field',
+    'thumbnails',
+    'taggit',
+    'taggit_serializer',
     # apps
     'apps.users',
+    'apps.profiles',
+
 ]
 
 MIDDLEWARE = [
