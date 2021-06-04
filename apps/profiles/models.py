@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.expressions import F
 from apps.users.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -15,12 +16,18 @@ def upload_to(instance, filename):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=55, null=True, blank=True)
+    last_name = models.CharField(max_length=55, null=True, blank=True)
+    # company =
+    position = models.CharField(max_length=75, blank=True, null=True)
     phone_number = PhoneNumberField()
     email = models.EmailField(max_length=55, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
+    location = models.CharField(max_length=100, blank=True)
     avatar = models.ImageField(
-        verbose_name=_('Avatar'), upload_to='userprofilesphoto', null=True, blank=True
+        verbose_name=_('Avatar'), upload_to='user_profilesphotos', null=True, blank=True
     )
+    date_join = models.DateField(auto_now_add=True)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
